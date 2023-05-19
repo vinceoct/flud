@@ -1,1 +1,91 @@
+const board = document.getElementsByClassName("boardb")
+const play = document.getElementsByClassName("playb")
+const colors = ["#ff0000", "#0000ff", "#ffff00"] 
+
+console.log(board)
+
+function newBoard (){
+    for (let i = 0; i < board.length; i++) {
+        const color = colors[Math.floor(Math.random()*colors.length)]
+        board[i].style.background = color 
+    }
+
+}
+
+newBoard ();
+
+function turn(button) {
+    const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
+
+    function checkAdj (startBtn, checked = []) {
+        const currentColor = board[startBtn].style.background;
+        checked.push(startBtn);
+
+        const numberOfRows = Math.sqrt(board.length);
+        const numberOfColumns = board[0].parentNode.childElementCount;
+
+        const rowIndex = Math.floor(startBtn / numberOfColumns);
+        const columnIndex = startBtn % numberOfColumns;
+
+        const adjacentBtns = [];
+
+            if (columnIndex > 0) {
+                const leftBtn = startBtn - 1;
+            if (!checked.includes(leftBtn)) {
+                adjacentBtns.push(leftBtn);
+                }
+            }   
+
+            if (columnIndex < numberOfColumns - 1) {
+                const rightBtn = startBtn + 1;
+            if (!checked.includes(rightBtn)) {
+                adjacentBtns.push(rightBtn);
+                }
+            }
+
+    
+            if (rowIndex > 0) {
+                const topBtn = startBtn - numberOfColumns;
+            if (!checked.includes(topBtn)) {
+                adjacentBtns.push(topBtn);
+                }
+            }
+
+    
+            if (rowIndex < numberOfRows - 1) {
+                const bottomBtn = startBtn + numberOfColumns;
+            if (!checked.includes(bottomBtn)) {
+                adjacentBtns.push(bottomBtn);
+                }
+            }
+
+        for (const index of adjacentBtns) {
+            const adjacentBtnColor = board[index].style.background;
+                if (currentColor === adjacentBtnColor) {
+                    console.log("Buttons at indices", startBtn, "and", index, "have the same color");
+                    checkAdj(index, checked);  
+                    board[startBtn].style.background = clickedBtnColor;
+                    board[index].style.background = clickedBtnColor;
+                    
+                }
+         }
+    }
+    const index = Array.from(button.parentNode.children).indexOf(button);
+    checkAdj(0);
+}
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 

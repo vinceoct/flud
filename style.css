@@ -34,3 +34,15 @@ body{
     width: 60px;
     height: 60px;
 }
+
+#c1{
+    background-color: #ff0000;
+}
+
+#c2{
+    background-color: #0000ff;
+}
+
+#c3{
+    background-color: #ffff00;
+}
