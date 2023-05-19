@@ -1,20 +1,25 @@
 const board = document.getElementsByClassName("boardb")
+const boardArray = Array.from(board);
 const play = document.getElementsByClassName("playb")
+const score = document.getElementById("turnnum")
 const colors = ["#ff0000", "#0000ff", "#ffff00"] 
 
-console.log(board)
 
 function newBoard (){
     for (let i = 0; i < board.length; i++) {
         const color = colors[Math.floor(Math.random()*colors.length)]
         board[i].style.background = color 
     }
-
 }
-
 newBoard ();
 
+function reset (){
+    newBoard();
+    score.innerText = "0"
+}
+
 function turn(button) {
+    score.innerText++;
     const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
 
     function checkAdj (startBtn, checked = []) {
@@ -72,9 +77,29 @@ function turn(button) {
     }
     const index = Array.from(button.parentNode.children).indexOf(button);
     checkAdj(0);
+    gameScan();
 }
 
-
+function gameScan() {
+    function areSameColor(elements) {
+        if (elements.length === 0) {
+            return false;
+        }
+    
+        const strtColor = window.getComputedStyle(board[0]).backgroundColor
+        
+        return elements.every((element) => {
+            const boardColor = window.getComputedStyle(element).backgroundColor
+            return boardColor === strtColor
+        })
+    }
+    const sameColor = areSameColor(boardArray);  
+    if(score.innerText === "25" && sameColor === false) {
+        alert("You Lose")
+    }else if(score.innerText <= "25" && sameColor === true){
+        alert(`You won in ${score.innerText} moves!`)
+    }
+}
 
 
 

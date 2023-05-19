@@ -21,3 +21,4 @@ High Scores - A record of your Top 5 best scores.
 
 based on Flood-It by Lab Pixies
 colorblind palette generated using https://davidmathlogic.com/colorblind/ 
+Thanks to Kevin Li for introducing me to recursive functions.
