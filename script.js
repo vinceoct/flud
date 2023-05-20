@@ -2,7 +2,9 @@ const board = document.getElementsByClassName("boardb")
 const boardArray = Array.from(board);
 const play = document.getElementsByClassName("playb")
 const score = document.getElementById("turnnum")
-const colors = ["#ff0000", "#0000ff", "#ffff00"] 
+const colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000" ] 
+const message = document.getElementById("message")
+const endgame = document.getElementById("endgame")
 
 
 function newBoard (){
@@ -17,11 +19,15 @@ function reset (){
     newBoard();
     score.innerText = "0"
 }
+function playAgain(button) {
+    reset();
+    endgame.style.zIndex = -1
+}
 
 function turn(button) {
     score.innerText++;
     const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
-
+    
     function checkAdj (startBtn, checked = []) {
         const currentColor = board[startBtn].style.background;
         checked.push(startBtn);
@@ -48,7 +54,6 @@ function turn(button) {
                 }
             }
 
-    
             if (rowIndex > 0) {
                 const topBtn = startBtn - numberOfColumns;
             if (!checked.includes(topBtn)) {
@@ -56,7 +61,6 @@ function turn(button) {
                 }
             }
 
-    
             if (rowIndex < numberOfRows - 1) {
                 const bottomBtn = startBtn + numberOfColumns;
             if (!checked.includes(bottomBtn)) {
@@ -67,11 +71,11 @@ function turn(button) {
         for (const index of adjacentBtns) {
             const adjacentBtnColor = board[index].style.background;
                 if (currentColor === adjacentBtnColor) {
-                    console.log("Buttons at indices", startBtn, "and", index, "have the same color");
-                    checkAdj(index, checked);  
+                    checkAdj(index, checked);
                     board[startBtn].style.background = clickedBtnColor;
-                    board[index].style.background = clickedBtnColor;
-                    
+                    board[index].style.background = clickedBtnColor;     
+                }else{
+                    board[startBtn].style.background = clickedBtnColor;
                 }
          }
     }
@@ -85,19 +89,22 @@ function gameScan() {
         if (elements.length === 0) {
             return false;
         }
-    
         const strtColor = window.getComputedStyle(board[0]).backgroundColor
-        
+    
         return elements.every((element) => {
             const boardColor = window.getComputedStyle(element).backgroundColor
             return boardColor === strtColor
         })
     }
     const sameColor = areSameColor(boardArray);  
-    if(score.innerText === "25" && sameColor === false) {
-        alert("You Lose")
-    }else if(score.innerText <= "25" && sameColor === true){
-        alert(`You won in ${score.innerText} moves!`)
+    if(score.innerText == 25 && sameColor === false) {
+        endgame.style.zIndex = 10
+        message.innerText = `You ran out of moves` 
+        console.log(sameColor)
+    }else if(score.innerText <= 25 && sameColor === true) {
+        endgame.style.zIndex = 10
+        message.innerText = `You won in ${score.innerText} moves`
+        console.log(sameColor)
     }
 }
 
