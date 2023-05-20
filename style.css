@@ -1,6 +1,7 @@
 body{
     text-align: center;
     z-index: 1;
+    background-color: white;
 }
 
 
@@ -68,6 +69,23 @@ body{
     position: absolute;
     margin:auto;
     top: 21%;
+    right: 39%;
+    width: 220px;
+    background-color: white;
+}
+#palettemenu{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    top: 0px;
+
+}
+#palettes{
+    position: absolute;
+    margin:auto;
+    top: 15%;
     right: 39%;
     width: 220px;
     background-color: white;

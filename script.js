@@ -2,10 +2,10 @@ const board = document.getElementsByClassName("boardb")
 const boardArray = Array.from(board);
 const play = document.getElementsByClassName("playb")
 const score = document.getElementById("turnnum")
-const colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000" ] 
+let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000" ] 
 const message = document.getElementById("message")
-const endgame = document.getElementById("endgame")
-
+const endGame = document.getElementById("endgame")
+const paletteMenu = document.getElementById("palettemenu")
 
 function newBoard (){
     for (let i = 0; i < board.length; i++) {
@@ -19,10 +19,42 @@ function reset (){
     newBoard();
     score.innerText = "0"
 }
+
 function playAgain(button) {
     reset();
-    endgame.style.zIndex = -1
+    endGame.style.zIndex = -1
 }
+
+function showColors (button) {
+    if(paletteMenu.style.zIndex == -1){
+        paletteMenu.style.zIndex = 10
+    }else{
+        paletteMenu.style.zIndex = -1
+    }
+}
+
+function colorChange (button) {
+    if(button.innerText === "default"){
+        colors = ["#FF0000", "#0000FF", "#FFFF00", "#FFA500", "#800080", "#008000"]    
+        reset();
+    }else if(button.innerText === "gutsy"){
+        colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"]
+        reset();
+    }else if(button.innerText === "ooo"){
+        colors = ["#840F0A", "#069CD4", "#AEDCF6", "#FBB922", "#F199C0", "#64B3A4"]
+        reset();
+    }else if(button.innerText === "colorblind") {
+        colors = ["#DC267F", "#648FFF", "#FFB000", "#FE6100","#785EF0", "#33460C"]
+        reset();
+    }
+    for (let i = 0; i < play.length; i++) {
+        play[i].style.backgroundColor = colors[i]
+    }
+}
+
+
+
+
 
 function turn(button) {
     score.innerText++;
@@ -100,11 +132,9 @@ function gameScan() {
     if(score.innerText == 25 && sameColor === false) {
         endgame.style.zIndex = 10
         message.innerText = `You ran out of moves` 
-        console.log(sameColor)
     }else if(score.innerText <= 25 && sameColor === true) {
         endgame.style.zIndex = 10
         message.innerText = `You won in ${score.innerText} moves`
-        console.log(sameColor)
     }
 }
 
