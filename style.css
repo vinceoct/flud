@@ -128,4 +128,15 @@ h1{
 #reset, #colors, #score{
     height: 40px;
     width: 60px;
+    font-family:"Saira Extra Condensed";
+    font-size: 22px;
+    border: none;
+    font-weight: 9000;
+}
+#reset{
+    background-image: url(pngegg.png);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+    background-position: center;
 }
