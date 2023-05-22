@@ -52,10 +52,6 @@ function colorChange (button) {
     }
 }
 
-
-
-
-
 function turn(button) {
     score.innerText++;
     const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
