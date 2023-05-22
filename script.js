@@ -6,6 +6,7 @@ let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000" ]
 const message = document.getElementById("message")
 const endGame = document.getElementById("endgame")
 const paletteMenu = document.getElementById("palettemenu")
+const background = document.querySelector("html")
 
 function newBoard (){
     for (let i = 0; i < board.length; i++) {
@@ -36,15 +37,19 @@ function showColors (button) {
 function colorChange (button) {
     if(button.innerText === "default"){
         colors = ["#FF0000", "#0000FF", "#FFFF00", "#FFA500", "#800080", "#008000"]    
+        background.style.backgroundImage = "url('defBG.png')"
         reset();
     }else if(button.innerText === "gutsy"){
-        colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"]
+        colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"] 
+        background.style.backgroundImage = "url('gutsyBG.png')"
         reset();
     }else if(button.innerText === "ooo"){
         colors = ["#840F0A", "#069CD4", "#AEDCF6", "#FBB922", "#F199C0", "#64B3A4"]
+        background.style.backgroundImage = "url('oooBG.png')"
         reset();
     }else if(button.innerText === "colorblind") {
         colors = ["#DC267F", "#648FFF", "#FFB000", "#FE6100","#785EF0", "#33460C"]
+        background.style.backgroundImage = "url('colorblindBG.png')"
         reset();
     }
     for (let i = 0; i < play.length; i++) {

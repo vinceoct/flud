@@ -1,11 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed&display=swap');
+
+html { 
+    background: url(defBG.png);
+    background-size: cover;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-family:"Saira Extra Condensed";
+}
+
 body{ 
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
     text-align: center;
     z-index: 1;
-    background-color:white;
-    position:absolute;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    top: 20%;
+}
+h1{
+    font-family:"Saira Extra Condensed";
+    color:aliceblue;
+    margin:0px;
+    font-size: 60px;
+    padding: 0;
 }
 
 #board{
@@ -13,6 +32,7 @@ body{
     width: 420px;
     height: 420px;
     margin-top: 20px;
+    box-shadow: 0 0 1000px 200px black;
 }
 
 .boardb{
@@ -21,12 +41,17 @@ body{
     border:none;
 }
 
-.r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8, .r9, .r10, .r11, .r12 {
+.r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8, .r9, .r10, .r11, .r12{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-
+#menu{
+    margin:auto;
+    display:flex;
+    width: 420px;
+    justify-content: space-between;
+}
 #play{
     width: 420px;
     height: 60px;
@@ -35,6 +60,7 @@ body{
     border: none;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .playb{
@@ -75,18 +101,20 @@ body{
 
 #palettes, #messagebox{
     position: relative;
-    margin:auto;
-    top: 20%;
+    top: 16.07%;
     width: 280px;
     height: 280px;
     background-color: rgba(0,0,0,.75);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    left: 50%;
+    transform: translateX(-50%)
 
 }
 #messagebox{
     color: white;
+    font-size: 30px;
 }
 .palettes{
     
@@ -96,4 +124,8 @@ body{
     margin: auto;
     margin-left:-4px;
    
+}
+#reset, #colors, #score{
+    height: 40px;
+    width: 60px;
 }
