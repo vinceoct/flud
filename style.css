@@ -112,7 +112,7 @@ h1{
     left: 50%;
     transform: translateX(-50%);
     top: 325px;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 20px black;
 
 }
 #messagebox{
@@ -155,6 +155,9 @@ h1{
 #reset:hover, #colors:hover{
     filter: drop-shadow(2px 2px 4px aliceblue);
 }
+#score{
+    margin-top: -8px;
+}
 
 #c1, #c2, #c3, #c4, #c5, #c6{
     transition-duration: 0.4s;
@@ -196,5 +199,121 @@ h1{
     padding: 0;
    
 }
-
-
+@media only screen and (max-width: 1024px) {
+    h1 {
+      font-size: 80px;
+    }
+  
+    #board {
+      width: 600px;
+      height: 600px;
+    }
+    
+    #menu {
+      width: 600px;
+    }
+    .boardb{
+        width: 50px;
+        height: 50px;
+        border:none;
+    }
+    #play {
+      width: 600px;
+    }
+  
+    .playb {
+      width: 85px;
+      height: 85px;
+    }
+  
+    #palettes,
+    #messagebox {
+      width: 566px;
+      height: 566px;
+      top: 234px;
+      font-size: 40px;
+    }
+  
+    #reset {
+        background-size: 25px;
+    }
+    #colors{
+        background-size: 45px;
+    }
+    
+    #score {
+      height: 60px;
+      width: 100px;
+      font-size: 40px;
+      margin-top: 10px;
+    }
+  
+    .palettes {
+      width: 40px;
+      height: 40px;
+    }
+    #colorblind, #ooo, #gutsy, #default, #close, #playagain {
+        height: 40px;
+        width: 108px;
+        font-size: 30px;
+    }
+    .palettes{
+        width: 40px;
+        height: 40px;
+}
+}
+@media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 60px;
+    }
+  
+    #board {
+      width: 480px;
+      height: 480px;
+    }
+    .boardb{
+        width: 40px;
+        height: 40px;
+        border:none;
+    }
+    #menu {
+      width: 480px;
+    }
+  
+    #play {
+      width: 480px;
+    }
+  
+    .playb {
+      width: 70px;
+      height: 70px;
+    }
+    .palettes{
+        width: 30px;
+        height: 30px;
+    }
+    #palettes, #messagebox {
+      width: 450px;
+      height: 450px;
+      font-size: 30px;
+      top: 200px;
+    }
+    #reset {
+        background-size: 20px;
+    }
+    #colors{
+        background-size: 35px;
+    }
+    
+    #score {
+      height: 40px;
+      width: 80px;
+      font-size: 30px;
+      margin-top: 17px;
+    }
+    #colorblind, #ooo, #gutsy, #default, #close, #playagain {
+        height: 30px;
+        width: 72px;
+        font-size: 20px;
+    }
+}

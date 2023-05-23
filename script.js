@@ -138,17 +138,3 @@ function gameScan() {
         message.innerText = `You won in ${score.innerText} moves`
     }
 }
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
