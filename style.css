@@ -23,20 +23,20 @@ h1{
     font-family:"Saira Extra Condensed";
     color:aliceblue;
     margin:0px;
-    font-size: 120px;
+    font-size: 100px;
     padding: 0;
 }
 #board{
     margin: auto;
-    width: 840px;
-    height: 840px;
+    width: 720px;
+    height: 720px;
     margin-top: 30px;
     box-shadow: 0 0 500px 100px black;
 }
 
 .boardb{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border:none;
 }
 
@@ -48,11 +48,11 @@ h1{
 #menu{
     margin:auto;
     display:flex;
-    width: 840px;
+    width: 720px;
     justify-content: space-between;
 }
 #play{
-    width: 840px;
+    width: 720px;
     height: 120px;
     margin: auto;
     margin-top: 50px;
@@ -63,8 +63,8 @@ h1{
 }
 
 .playb{
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: none;
 }
 
@@ -102,8 +102,8 @@ h1{
 
 #palettes, #messagebox{
     position: relative;
-    width: 790px;
-    height: 790px;
+    width: 690px;
+    height: 690px;
     background-color: rgba(0,0,0,.85);
     border-radius: 2%;
     display: flex;
@@ -111,7 +111,7 @@ h1{
     justify-content: center;
     left: 50%;
     transform: translateX(-50%);
-    top: 325px;
+    top: 282px;
     box-shadow: 0px 0px 20px black;
 
 }
@@ -199,6 +199,9 @@ h1{
     padding: 0;
    
 }
+#board{
+    box-shadow: 0 0 250px 50px black;
+}
 @media only screen and (max-width: 1024px) {
     h1 {
       font-size: 80px;
@@ -230,7 +233,7 @@ h1{
     #messagebox {
       width: 566px;
       height: 566px;
-      top: 234px;
+      top: 254px;
       font-size: 40px;
     }
   
@@ -264,56 +267,61 @@ h1{
 }
 @media only screen and (max-width: 768px) {
     h1 {
-      font-size: 60px;
+      font-size: 40px;
     }
   
     #board {
-      width: 480px;
-      height: 480px;
+      width: 240px;
+      height: 240px;
+      margin-top: -10px;
     }
     .boardb{
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
         border:none;
     }
     #menu {
-      width: 480px;
+      width: 240px;
     }
   
     #play {
-      width: 480px;
+      width: 240px;
+      margin-top: 15px;
     }
   
     .playb {
-      width: 70px;
-      height: 70px;
+      width: 30px;
+      height: 30px;
     }
     .palettes{
-        width: 30px;
-        height: 30px;
+        width: 10px;
+        height: 10px;
     }
     #palettes, #messagebox {
-      width: 450px;
-      height: 450px;
-      font-size: 30px;
-      top: 200px;
+      width: 220px;
+      height: 220px;
+      font-size: 10px;
+      top: 145px;
     }
     #reset {
-        background-size: 20px;
+        background-size: 10px;
     }
     #colors{
-        background-size: 35px;
+        background-size: 20px;
     }
     
     #score {
-      height: 40px;
-      width: 80px;
-      font-size: 30px;
-      margin-top: 17px;
+      height: 20px;
+      width: 40px;
+      font-size: 20px;
+      margin-top: 24px;
     }
     #colorblind, #ooo, #gutsy, #default, #close, #playagain {
-        height: 30px;
-        width: 72px;
-        font-size: 20px;
+        height: 10px;
+        width: 35px;
+        font-size: 8px;
+    }
+    #board{
+        box-shadow: 0 0 250px 50px black;
     }
 }
