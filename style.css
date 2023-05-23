@@ -17,27 +17,26 @@ body{
     height: 100%;
     text-align: center;
     z-index: 1;
-    top: 20%;
+    top: 6.3%;
 }
 h1{
     font-family:"Saira Extra Condensed";
     color:aliceblue;
     margin:0px;
-    font-size: 60px;
+    font-size: 120px;
     padding: 0;
 }
-
 #board{
     margin: auto;
-    width: 420px;
-    height: 420px;
-    margin-top: 20px;
+    width: 840px;
+    height: 840px;
+    margin-top: 30px;
     box-shadow: 0 0 500px 100px black;
 }
 
 .boardb{
-    width: 35px;
-    height: 35px;
+    width: 70px;
+    height: 70px;
     border:none;
 }
 
@@ -49,12 +48,12 @@ h1{
 #menu{
     margin:auto;
     display:flex;
-    width: 420px;
+    width: 840px;
     justify-content: space-between;
 }
 #play{
-    width: 420px;
-    height: 60px;
+    width: 840px;
+    height: 120px;
     margin: auto;
     margin-top: 50px;
     border: none;
@@ -64,8 +63,8 @@ h1{
 }
 
 .playb{
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
     border: none;
 }
 
@@ -102,9 +101,9 @@ h1{
 }
 
 #palettes, #messagebox{
-    position: fixed;
-    width: 395px;
-    height: 395px;
+    position: relative;
+    width: 790px;
+    height: 790px;
     background-color: rgba(0,0,0,.85);
     border-radius: 2%;
     display: flex;
@@ -112,26 +111,26 @@ h1{
     justify-content: center;
     left: 50%;
     transform: translateX(-50%);
-    top: 30.2%;
+    top: 325px;
     box-shadow: 0px 0px 10px black;
 
 }
 #messagebox{
     color: white;
-    font-size: 30px;
+    font-size: 60px;
 }
 .palettes{
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     border: none;
     margin: 0;
    
 }
 #reset, #colors, #score{
-    height: 40px;
-    width: 60px;
+    height: 80px;
+    width: 120px;
     font-family:"Saira Extra Condensed";
-    font-size: 30px;
+    font-size: 60px;
     border: none;
     font-weight: 9000;
     color: aliceblue;
@@ -140,11 +139,11 @@ h1{
 }
 #reset{
     background-image: url(reset.png);
-    background-size: 25px;
+    background-size: 35px;
 }
 #colors{
     background-image: url(brush.png);
-    background-size: 35px;
+    background-size: 55px;
 }
 #reset, #colors{
     background-repeat: no-repeat;
@@ -160,7 +159,10 @@ h1{
 #c1, #c2, #c3, #c4, #c5, #c6{
     transition-duration: 0.4s;
 }
-#c1:hover, #c2:hover, #c3:hover, #c4:hover, #c5:hover, #c6:hover, #colorblind:hover, #ooo:hover, #gutsy:hover, #default:hover, #close:hover{
+#c1:hover, #c2:hover, #c3:hover, #c4:hover, #c5:hover, #c6:hover{
+    box-shadow: 0px 0px 20px  aliceblue;
+}
+#colorblind:hover, #ooo:hover, #gutsy:hover, #default:hover, #close:hover, #playagain:hover{
     box-shadow: 0px 0px 10px  grey;
 }
 
@@ -174,10 +176,10 @@ h1{
     margin-right:30px;
 }
 #colorblind, #ooo, #gutsy, #default, #close, #playagain {
-    height: 30px;
-    width: 72px;
+    height: 60px;
+    width: 144px;
     font-family:"Saira Extra Condensed";
-    font-size: 20px;
+    font-size: 40px;
     background-color: rgba(255,255,255,.25);
     color: aliceblue;
     border: none;
@@ -194,4 +196,5 @@ h1{
     padding: 0;
    
 }
+
 
