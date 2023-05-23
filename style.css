@@ -118,7 +118,7 @@ h1{
 }
 #messagebox{
     color: white;
-    font-size: 60px;
+    font-size: 40px;
 }
 .palettes{
     width: 40px;
@@ -131,7 +131,7 @@ h1{
     height: 80px;
     width: 130px;
     font-family:"Saira Extra Condensed";
-    font-size: 40px;
+    font-size: 4q0px;
     border: none;
     color: aliceblue;
     background-color: transparent;
@@ -201,7 +201,6 @@ h1{
 #board{
     box-shadow: 0 0 250px 50px black;
 }
-    
 
 @media only screen and (max-width: 768px) {
     h1 {
@@ -239,7 +238,7 @@ h1{
       width: 220px;
       height: 220px;
       font-size: 10px;
-      top: 145px;
+      top: 134px;
     }
     #reset {
         background-size: 10px;
