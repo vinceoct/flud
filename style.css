@@ -32,7 +32,7 @@ h1{
     width: 420px;
     height: 420px;
     margin-top: 20px;
-    box-shadow: 0 0 1000px 200px black;
+    box-shadow: 0 0 500px 100px black;
 }
 
 .boardb{
@@ -129,14 +129,28 @@ h1{
     height: 40px;
     width: 60px;
     font-family:"Saira Extra Condensed";
-    font-size: 22px;
+    font-size: 30px;
     border: none;
     font-weight: 9000;
+    color: aliceblue;
+    background-color: transparent;
+    padding: 0;
 }
 #reset{
-    background-image: url(pngegg.png);
+    background-image: url(reset.png);
     background-size: 25px;
+}
+#colors{
+    background-image: url(brush.png);
+    background-size: 35px;
+}
+#reset, #colors{
     background-repeat: no-repeat;
-    background-color: aliceblue;
+    background-color: transparent;
     background-position: center;
+    transition-duration: 0.4s;
+}
+
+#reset:hover, #colors:hover{
+    filter: drop-shadow(2px 2px 4px aliceblue);
 }
