@@ -154,3 +154,25 @@ h1{
 #reset:hover, #colors:hover{
     filter: drop-shadow(2px 2px 4px aliceblue);
 }
+
+#c1, #c2, #c3, #c4, #c5, #c6{
+    transition-duration: 0.4s;
+}
+#c1:hover{
+    box-shadow: 0px 0px 20px #ff6666;
+}
+#c2:hover{
+    box-shadow: 0px 0px 20px #6666ff;
+}
+#c3:hover{
+    box-shadow: 0px 0px 20px #ffff00;
+}
+#c4:hover{
+    box-shadow: 0px 0px 20px #FFA500;
+}
+#c5:hover{
+    box-shadow: 0px 0px 20px #b366b3;
+}
+#c6:hover{
+    box-shadow: 0px 0px 20px #66b366;
+}
