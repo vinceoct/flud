@@ -53,8 +53,8 @@ function colorChange (button) {
         reset();
     }
     for (let i = 0; i < play.length; i++) {
-        play[i].style.backgroundColor = colors[i]
-    }
+        play[i].style.backgroundColor = colors[i];
+     }
 }
 
 function turn(button) {
