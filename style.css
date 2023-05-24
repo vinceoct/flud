@@ -114,8 +114,52 @@ h1{
     transform: translateX(-50%);
     top: 185px;
     box-shadow: 0px 0px 20px black;
-
 }
+
+.colorop{
+animation: colorO .5s ease 0s 1 normal forwards;
+}
+@keyframes colorO {
+    0% {
+        transform: scale(0);
+        transform-origin: 61% 10%;
+    }
+
+    100% {
+        transform: scale(1);
+        transform-origin: 61% 10%;
+    }
+}
+.gameend{
+    animation: gameend .5s ease 0s 1 normal forwards;
+    }
+    @keyframes gameend {
+        0% {
+            transform: scale(0);
+            transform-origin: 50% 10%;
+        }
+    
+        100% {
+            transform: scale(1);
+            transform-origin: 50% 10%;
+        }
+    }
+/* .colorcl{
+    animation: colorC .5s ease 0s 1 normal forwards;
+}
+@keyframes colorC {
+        0% {
+            transform: scale(1);
+            transform-origin: 61% 10%;
+        }
+    
+        100% {
+            transform: scale(0);
+            transform-origin: 61% 10%;
+        }
+    }  */
+
+
 #messagebox{
     color: white;
     font-size: 40px;
@@ -131,7 +175,7 @@ h1{
     height: 80px;
     width: 130px;
     font-family:"Saira Extra Condensed";
-    font-size: 4q0px;
+    font-size: 37px;
     border: none;
     color: aliceblue;
     background-color: transparent;

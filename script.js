@@ -8,6 +8,10 @@ const endGame = document.getElementById("endgame")
 const paletteMenu = document.getElementById("palettemenu")
 const background = document.querySelector("html")
 
+
+
+
+
 function newBoard (){
     for (let i = 0; i < board.length; i++) {
         const color = colors[Math.floor(Math.random()*colors.length)]
@@ -24,13 +28,18 @@ function reset (){
 function playAgain(button) {
     reset();
     endGame.style.zIndex = -1
+    endGame.classList.toggle('gameend')
 }
 
 function showColors (button) {
+    
     if(paletteMenu.style.zIndex == -1){
         paletteMenu.style.zIndex = 10
+        paletteMenu.classList.toggle('colorop')
+        
     }else{
-        paletteMenu.style.zIndex = -1
+        paletteMenu.classList.toggle('colorop')
+        paletteMenu.style.zIndex = -1 
     }
 }
 
@@ -131,10 +140,12 @@ function gameScan() {
     }
     const sameColor = areSameColor(boardArray);  
     if(score.innerText == 25 && sameColor === false) {
-        endgame.style.zIndex = 10
+        endGame.style.zIndex = 10
+        endGame.classList.toggle('gameend')
         message.innerText = `You ran out of moves` 
     }else if(score.innerText <= 25 && sameColor === true) {
-        endgame.style.zIndex = 10
+        endGame.style.zIndex = 10
+        endGame.classList.toggle('gameend')
         message.innerText = `You won in ${score.innerText} moves`
     }
 }
