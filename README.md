@@ -1,24 +1,28 @@
-#flŭd
+# flŭd
+![](https://github.com/vinceoct/flud/blob/bfe2f926da868535718ad0134247d82211970d97/images/palettes.gif)
 
-flŭd is a deceptively simple strategy where the the objective is to flood the board in less than 25 steps.
+## Description
+flŭd is a deceptively simple strategy where the the objective is to flood the board with one color.
 
-#rules
+## Rules
 
-You start in the top left corner. Selecting one of the six colors below the board will turn the starting square, and all adjacent squares of the same color, into the chosen color. Diagonal squares will remain the same. 
-You may notice that some squares already share a color with adjacent squares. Those adjacent squares will also change color. To win, you must flood the board in 25 moves or less. Your score 
-is determined by the amount of moves it takes to flood the board. The lower the score the better. 
+- Starting in the top left corner. Clicking one of the six colors below the board will turn the starting square, and all adjacent squares of the same color, into the clicked color. Diagonal squares will remain the same. 
 
-#palettes
+- To win, you must make the board one color in 25 moves or less. 
 
-Click the palette button to change the default colors. Colorblind friendly palette available. 
+- Your score is determined by the amount of moves it takes to flood the board. The lower the score the better. 
 
-#coming soon
+## Palettes
 
-Challenge mode - A larger board, for a bigger challenge!
-High Scores - A record of your Top 5 best scores. 
+Click the brush button to change the default colors. Doing so will reset the board. Colorblind friendly palette available. 
 
-#credits
+## Coming Soon
 
-based on Flood-It by Lab Pixies
-colorblind palette generated using https://davidmathlogic.com/colorblind/ 
-Thanks to Kevin Li for introducing me to recursive functions.
+- Challenge mode: A larger board, for a bigger challenge!
+- High Scores: A record of your best scores, and win percentage. 
+- More Palettes
+
+## Credits
+
+- Based on Flood-It by Lab Pixies
+- Colorblind palette generated using https://davidmathlogic.com/colorblind/ 
