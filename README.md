@@ -6,7 +6,7 @@ flŭd is a deceptively simple strategy game where the the objective is to flood 
 
 ## Rules
 
-- Starting in the top left corner. Clicking one of the six colors below the board will turn the starting square, and all adjacent squares of the same color, into the clicked color. Diagonal squares will remain the same. 
+- You start the game in the top left corner. Clicking one of the six colors below the board will turn the starting square, and all adjacent squares of the same color, into the clicked color. Diagonal squares will remain the same. 
 
 - To win, you must make the board one color in 25 moves or less. 
 
