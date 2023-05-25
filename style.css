@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed&display=swap');
 
 html { 
-    background: url(defBG.png);
+    background: black url(./images/defBG.png);
     background-size: cover;
     overflow: hidden;
     height: 100%;
@@ -18,14 +18,16 @@ body{
     text-align: center;
     z-index: 1;
     top: 0%;
-}
-h1{
     font-family:"Saira Extra Condensed";
     color:aliceblue;
+}
+
+h1{
     margin:0px;
     font-size: 60px;
     padding: 0;
 }
+
 #board{
     margin: auto;
     width: 444px;
@@ -45,6 +47,7 @@ h1{
     flex-direction: row;
     justify-content: center;
 }
+
 #menu{
     margin:auto;
     display:flex;
@@ -52,6 +55,7 @@ h1{
     justify-content: space-between;
     margin-top: -10px;
 }
+
 #play{
     width: 444px;
     height: 120px;
@@ -90,7 +94,7 @@ h1{
     background-color: #008000;
 }
 
-#palettemenu, #endgame{
+#palettemenu, #endgame, #instructions{
     position: absolute;
     z-index: -1;
     min-width: 100%;
@@ -100,8 +104,7 @@ h1{
     margin:auto;
     padding: auto;
 }
-
-#palettes, #messagebox{
+#palettes, #messagebox, #howto{
     position: relative;
     width: 420px;
     height: 420px;
@@ -115,19 +118,31 @@ h1{
     top: 185px;
     box-shadow: 0px 0px 20px black;
 }
-
+#howto{
+    font-size: 20px;
+    text-align: left;
+    
+}
+h2{
+    text-align: center;
+}
+ul{
+    margin-top: -20px;
+    margin-left: -10px;
+    margin-bottom: -5px;
+}
 .colorop{
 animation: colorO .5s ease 0s 1 normal forwards;
 }
 @keyframes colorO {
     0% {
         transform: scale(0);
-        transform-origin: 61% 10%;
+        transform-origin: 61% 12%;
     }
 
     100% {
         transform: scale(1);
-        transform-origin: 61% 10%;
+        transform-origin: 61% 12%;
     }
 }
 .gameend{
@@ -136,14 +151,28 @@ animation: colorO .5s ease 0s 1 normal forwards;
     @keyframes gameend {
         0% {
             transform: scale(0);
-            transform-origin: 50% 10%;
+            transform-origin: 50% 12%;
         }
     
         100% {
             transform: scale(1);
-            transform-origin: 50% 10%;
+            transform-origin: 50% 12%;
         }
     }
+.instop{
+animation: instO .5s ease 0s 1 normal forwards;
+        }
+        @keyframes instO {
+            0% {
+                transform: scale(0);
+                transform-origin: 100% 0%;
+            }
+        
+            100% {
+                transform: scale(1);
+                transform-origin: 100% 0%;
+            }
+        }
 #messagebox{
     color: white;
     font-size: 40px;
@@ -155,7 +184,7 @@ animation: colorO .5s ease 0s 1 normal forwards;
     margin: 0;
    
 }
-#reset, #colors, #score{
+#reset, #colors, #score, #openHT{
     height: 80px;
     width: 130px;
     font-family:"Saira Extra Condensed";
@@ -166,12 +195,21 @@ animation: colorO .5s ease 0s 1 normal forwards;
     
 }
 #reset{
-    background-image: url(reset.png);
+    background-image: url(./images/reset.png);
     background-size: 30px;
 }
 #colors{
-    background-image: url(brush.png);
+    background-image: url(./images/brush.png);
     background-size: 40px;
+}
+#openHT{  
+    position:absolute;
+    top: 0;
+    right: 0; 
+    height: 40px;
+    width: 70px;
+    transition-duration: 0.4s; 
+    z-index:20;
 }
 #reset, #colors{
     background-repeat: no-repeat;
@@ -180,8 +218,12 @@ animation: colorO .5s ease 0s 1 normal forwards;
     transition-duration: 0.4s;
 }
 
+#openHT:hover {
+    text-shadow: 1px 1px 4px white;
+    
+}
 #reset:hover, #colors:hover{
-    filter: drop-shadow(2px 2px 4px aliceblue);
+    filter: drop-shadow(1px 1px 4px aliceblue);
 }
 #score{
     margin-top: -8px;
@@ -193,7 +235,7 @@ animation: colorO .5s ease 0s 1 normal forwards;
 #c1:hover, #c2:hover, #c3:hover, #c4:hover, #c5:hover, #c6:hover{
     box-shadow: 0px 0px 20px  aliceblue;
 }
-#colorblind:hover, #ooo:hover, #gutsy:hover, #default:hover, #close:hover, #playagain:hover{
+#colorblind:hover, #ooo:hover, #gutsy:hover, #default:hover, #close:hover, #playagain:hover, #close2:hover{
     box-shadow: 0px 0px 10px  grey;
 }
 
@@ -206,7 +248,7 @@ animation: colorO .5s ease 0s 1 normal forwards;
 #colorblind, #ooo, #gutsy, #default  {
     margin-right:30px;
 }
-#colorblind, #ooo, #gutsy, #default, #close, #playagain {
+#colorblind, #ooo, #gutsy, #default, #close, #playagain, #close2 {
     height: 40px;
     width: 120px;
     font-family:"Saira Extra Condensed";
@@ -215,16 +257,20 @@ animation: colorO .5s ease 0s 1 normal forwards;
     color: aliceblue;
     border: none;
     line-height: 0px;
-    border-radius: 2px;
-    
+    border-radius: 2px; 
 }
 
-#close, #playagain{
+#close, #playagain, #close2{
     margin:auto;
     margin-top: 40px;
     margin-bottom: -40px;
     left: 50%;
     padding: 0;   
+}
+
+#close2{
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 #board{
     box-shadow: 0 0 250px 50px black;
@@ -232,7 +278,7 @@ animation: colorO .5s ease 0s 1 normal forwards;
 
 @media only screen and (max-width: 768px) {
     html { 
-        background: url(defBG.png);
+        background: black url(./images/defBG.png);
         background-position-x: 50%;
         overflow: hidden;
         height: 100%;
@@ -271,7 +317,7 @@ animation: colorO .5s ease 0s 1 normal forwards;
         width: 10px;
         height: 10px;
     }
-    #palettes, #messagebox {
+    #palettes, #messagebox, #howto {
       width: 220px;
       height: 220px;
       font-size: 10px;
@@ -290,7 +336,13 @@ animation: colorO .5s ease 0s 1 normal forwards;
       font-size: 20px;
       margin-top: 24px;
     }
-    #colorblind, #ooo, #gutsy, #default, #close, #playagain {
+    #openHT{
+        font-size: 25px;
+    }
+    h2{
+        margin-bottom: 30px;
+    }
+    #colorblind, #ooo, #gutsy, #default, #close, #playagain, #close2 {
         height: 10px;
         width: 35px;
         font-size: 8px;
@@ -298,4 +350,32 @@ animation: colorO .5s ease 0s 1 normal forwards;
     #board{
         box-shadow: 0 0 250px 50px black;
     }
+    .colorop{
+        animation: colorO .5s ease 0s 1 normal forwards;
+        }
+        @keyframes colorO {
+            0% {
+                transform: scale(0);
+                transform-origin: 61% 20%;
+            }
+        
+            100% {
+                transform: scale(1);
+                transform-origin: 61% 20%;
+            }
+        }
+    .gameend{
+        animation: gameend .5s ease 0s 1 normal forwards;
+        }
+        @keyframes gameend {
+            0% {
+                transform: scale(0);
+                transform-origin: 50% 10%;
+            }
+        
+            100% {
+                transform: scale(1);
+                transform-origin: 50% 10%;
+            }
+        }
 }

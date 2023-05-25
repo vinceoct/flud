@@ -7,11 +7,11 @@ const message = document.getElementById("message")
 const endGame = document.getElementById("endgame")
 const paletteMenu = document.getElementById("palettemenu")
 const background = document.querySelector("html")
+const instructions = document.getElementById("instructions")
 
 
 
-
-
+//New Game Functions
 function newBoard (){
     for (let i = 0; i < board.length; i++) {
         const color = colors[Math.floor(Math.random()*colors.length)]
@@ -25,6 +25,7 @@ function reset (){
     score.innerText = "0"
 }
 
+//Button Functions
 function playAgain(button) {
     reset();
     endGame.style.zIndex = -1
@@ -43,22 +44,33 @@ function showColors (button) {
     }
 }
 
+function howTo (button) {
+
+    if(instructions.style.zIndex == -1){
+        instructions.style.zIndex = 10
+        instructions.classList.toggle('instop')
+    }else{
+        instructions.classList.toggle('instop')
+        instructions.style.zIndex = -1
+    }
+}
+
 function colorChange (button) {
     if(button.innerText === "default"){
         colors = ["#FF0000", "#0000FF", "#FFFF00", "#FFA500", "#800080", "#008000"]    
-        background.style.backgroundImage = "url('defBG.png')"
+        background.style.backgroundImage = "url('./images/defBG.png')"
         reset();
     }else if(button.innerText === "gutsy"){
         colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"] 
-        background.style.backgroundImage = "url('gutsyBG.png')"
+        background.style.backgroundImage = "url('./images/gutsyBG.png')"
         reset();
     }else if(button.innerText === "ooo"){
         colors = ["#840F0A", "#069CD4", "#AEDCF6", "#FBB922", "#F199C0", "#64B3A4"]
-        background.style.backgroundImage = "url('oooBG.png')"
+        background.style.backgroundImage = "url('./images/oooBG.png')"
         reset();
     }else if(button.innerText === "colorblind") {
         colors = ["#DC267F", "#648FFF", "#FFB000", "#FE6100","#785EF0", "#33460C"]
-        background.style.backgroundImage = "url('colorblindBG.png')"
+        background.style.backgroundImage = "url('./images/colorblindBG.png')"
         reset();
     }
     for (let i = 0; i < play.length; i++) {
@@ -66,6 +78,7 @@ function colorChange (button) {
      }
 }
 
+//Game Logic Function
 function turn(button) {
     score.innerText++;
     const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
