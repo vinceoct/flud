@@ -26,3 +26,8 @@ Click the brush button to change the default colors. Doing so will reset the boa
 
 - Based on Flood-It by Lab Pixies
 - Colorblind palette generated using https://davidmathlogic.com/colorblind/ 
+
+## Workflow
+
+- Trello: https://trello.com/b/KZ5oDd65/fl%C5%ADd
+- Early Wireframe Concept: https://www.figma.com/file/hq43GWcH5st7M3TPz3I6Bx/fl%C5%ADd?type=design&node-id=0-1&t=CXJpNOQg466sMn8A-0
