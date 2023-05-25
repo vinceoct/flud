@@ -2,7 +2,7 @@
 ![](https://github.com/vinceoct/flud/blob/bfe2f926da868535718ad0134247d82211970d97/images/palettes.gif)
 
 ## Description
-flŭd is a deceptively simple strategy where the the objective is to flood the board with one color.
+flŭd is a deceptively simple strategy game where the the objective is to flood the board with one color.
 
 ## Rules
 
