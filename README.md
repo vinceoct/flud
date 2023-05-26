@@ -25,7 +25,7 @@ Click the brush button to change the default colors. Doing so will reset the boa
 ## Credits
 
 - Based on Flood-It by Lab Pixies
-- Colorblind palette generated [here](https://davidmathlogic.com/colorblind/)
+- Colorblind palette generated [here](https://davidmathlogic.com/colorblind/).
 
 ## Workflow
 
