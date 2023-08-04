@@ -1,191 +1,192 @@
-const board = document.getElementsByClassName("boardb")
+const board = document.getElementsByClassName("boardb");
 const boardArray = Array.from(board);
-const play = document.getElementsByClassName("playb")
-const score = document.getElementById("turnnum")
-let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000" ] 
-const message = document.getElementById("message")
-const endGame = document.getElementById("endgame")
-const paletteMenu = document.getElementById("palettemenu")
-const background = document.querySelector("html")
-const instructions = document.getElementById("instructions")
-let gridSize = 12
-
+const play = document.getElementsByClassName("playb");
+const score = document.getElementById("turnnum");
+let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000"];
+const message = document.getElementById("message");
+const endGame = document.getElementById("endgame");
+const paletteMenu = document.getElementById("palettemenu");
+const background = document.querySelector("html");
+const instructions = document.getElementById("instructions");
+let gridSize = 12;
 
 //New Game Functions
-function newBoard (){
-    const rowClasses = [
-      "r1",
-      "r2",
-      "r3",
-      "r4",
-      "r5",
-      "r6",
-      "r7",
-      "r8",
-      "r9",
-      "r10",
-      "r11",
-      "r12",
-    ];
-    for (const rowClass of rowClasses) {
-        const row = document.querySelector(`.${rowClass}`)
-    
+function newBoard() {
+  const rowClasses = [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+  ];
+  for (const rowClass of rowClasses) {
+    const row = document.querySelector(`.${rowClass}`);
+
     for (let i = 0; i < gridSize; i++) {
-            const button = document.createElement("button");
-            button.className = "boardb";
-            button.addEventListener("click", function() {
-                turn(this)
-            })
-            row.appendChild(button)
-        }
+      const button = document.createElement("button");
+      button.className = "boardb";
+      button.addEventListener("click", function () {
+        turn(this);
+      });
+      row.appendChild(button);
     }
-
-    for (let i = 0; i < board.length; i++) {
-        const color = colors[Math.floor(Math.random()*colors.length)]
-        board[i].style.background = color 
-    }
+  }
+  resetBoard();
 }
-newBoard ();
 
-function reset (){
-    newBoard();
-    score.innerText = "0"
+function resetBoard() {
+  for (let i = 0; i < board.length; i++) {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    board[i].style.background = color;
+  }
+}
+newBoard();
+
+function reset() {
+  resetBoard();
+  score.innerText = "0";
 }
 
 //Button Functions
 function playAgain(button) {
+  reset();
+  endGame.style.zIndex = -1;
+  endGame.classList.toggle("gameend");
+}
+
+function showColors(button) {
+  if (paletteMenu.style.zIndex == -1) {
+    paletteMenu.style.zIndex = 10;
+    paletteMenu.classList.toggle("colorop");
+  } else {
+    paletteMenu.classList.toggle("colorop");
+    paletteMenu.style.zIndex = -1;
+  }
+}
+
+function howTo(button) {
+  if (instructions.style.zIndex == -1) {
+    instructions.style.zIndex = 10;
+    instructions.classList.toggle("instop");
+  } else {
+    instructions.classList.toggle("instop");
+    instructions.style.zIndex = -1;
+  }
+}
+
+function colorChange(button) {
+  if (button.innerText === "default") {
+    colors = ["#FF0000", "#0000FF", "#FFFF00", "#FFA500", "#800080", "#008000"];
+    background.style.backgroundImage = "url('./images/defBG.png')";
     reset();
-    endGame.style.zIndex = -1
-    endGame.classList.toggle('gameend')
-}
-
-function showColors (button) {
-    
-    if(paletteMenu.style.zIndex == -1){
-        paletteMenu.style.zIndex = 10
-        paletteMenu.classList.toggle('colorop')
-        
-    }else{
-        paletteMenu.classList.toggle('colorop')
-        paletteMenu.style.zIndex = -1 
-    }
-}
-
-function howTo (button) {
-
-    if(instructions.style.zIndex == -1){
-        instructions.style.zIndex = 10
-        instructions.classList.toggle('instop')
-    }else{
-        instructions.classList.toggle('instop')
-        instructions.style.zIndex = -1
-    }
-}
-
-function colorChange (button) {
-    if(button.innerText === "default"){
-        colors = ["#FF0000", "#0000FF", "#FFFF00", "#FFA500", "#800080", "#008000"]    
-        background.style.backgroundImage = "url('./images/defBG.png')"
-        reset();
-    }else if(button.innerText === "gutsy"){
-        colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"] 
-        background.style.backgroundImage = "url('./images/gutsyBG.png')"
-        reset();
-    }else if(button.innerText === "ooo"){
-        colors = ["#840F0A", "#069CD4", "#AEDCF6", "#FBB922", "#F199C0", "#64B3A4"]
-        background.style.backgroundImage = "url('./images/oooBG.png')"
-        reset();
-    }else if(button.innerText === "colorblind") {
-        colors = ["#DC267F", "#648FFF", "#FFB000", "#FE6100","#785EF0", "#33460C"]
-        background.style.backgroundImage = "url('./images/colorblindBG.png')"
-        reset();
-    }
-    for (let i = 0; i < play.length; i++) {
-        play[i].style.backgroundColor = colors[i];
-     }
+  } else if (button.innerText === "gutsy") {
+    colors = ["#9D2241", "#0E1D6A", "#E2DF50", "#EA9828", "#FFFFFF", "#2A603B"];
+    background.style.backgroundImage = "url('./images/gutsyBG.png')";
+    reset();
+  } else if (button.innerText === "ooo") {
+    colors = ["#840F0A", "#069CD4", "#AEDCF6", "#FBB922", "#F199C0", "#64B3A4"];
+    background.style.backgroundImage = "url('./images/oooBG.png')";
+    reset();
+  } else if (button.innerText === "colorblind") {
+    colors = ["#DC267F", "#648FFF", "#FFB000", "#FE6100", "#785EF0", "#33460C"];
+    background.style.backgroundImage = "url('./images/colorblindBG.png')";
+    reset();
+  }
+  for (let i = 0; i < play.length; i++) {
+    play[i].style.backgroundColor = colors[i];
+  }
 }
 
 //Game Logic Function
 function turn(button) {
-    score.innerText++;
-    const clickedBtnColor = window.getComputedStyle(button).getPropertyValue("background-color");
-    
-    function checkAdj (startBtn, checked = []) {
-        const currentColor = board[startBtn].style.background;
-        checked.push(startBtn);
+  score.innerText++;
+  const clickedBtnColor = window
+    .getComputedStyle(button)
+    .getPropertyValue("background-color");
 
-        const numberOfRows = Math.sqrt(board.length);
-        const numberOfColumns = board[0].parentNode.childElementCount;
+  function checkAdj(startBtn, checked = []) {
+    const currentColor = board[startBtn].style.background;
+    checked.push(startBtn);
 
-        const rowIndex = Math.floor(startBtn / numberOfColumns);
-        const columnIndex = startBtn % numberOfColumns;
+    const numberOfRows = Math.sqrt(board.length);
+    const numberOfColumns = board[0].parentNode.childElementCount;
 
-        const adjacentBtns = [];
+    const rowIndex = Math.floor(startBtn / numberOfColumns);
+    const columnIndex = startBtn % numberOfColumns;
 
-            if (columnIndex > 0) {
-                const leftBtn = startBtn - 1;
-            if (!checked.includes(leftBtn)) {
-                adjacentBtns.push(leftBtn);
-                }
-            }   
+    const adjacentBtns = [];
 
-            if (columnIndex < numberOfColumns - 1) {
-                const rightBtn = startBtn + 1;
-            if (!checked.includes(rightBtn)) {
-                adjacentBtns.push(rightBtn);
-                }
-            }
-
-            if (rowIndex > 0) {
-                const topBtn = startBtn - numberOfColumns;
-            if (!checked.includes(topBtn)) {
-                adjacentBtns.push(topBtn);
-                }
-            }
-
-            if (rowIndex < numberOfRows - 1) {
-                const bottomBtn = startBtn + numberOfColumns;
-            if (!checked.includes(bottomBtn)) {
-                adjacentBtns.push(bottomBtn);
-                }
-            }
-
-        for (const index of adjacentBtns) {
-            const adjacentBtnColor = board[index].style.background;
-                if (currentColor === adjacentBtnColor) {
-                    checkAdj(index, checked);
-                    board[startBtn].style.background = clickedBtnColor;
-                    board[index].style.background = clickedBtnColor;     
-                }else{
-                    board[startBtn].style.background = clickedBtnColor;
-                }
-         }
+    if (columnIndex > 0) {
+      const leftBtn = startBtn - 1;
+      if (!checked.includes(leftBtn)) {
+        adjacentBtns.push(leftBtn);
+      }
     }
-    const index = Array.from(button.parentNode.children).indexOf(button);
-    checkAdj(0);
-    gameScan();
+
+    if (columnIndex < numberOfColumns - 1) {
+      const rightBtn = startBtn + 1;
+      if (!checked.includes(rightBtn)) {
+        adjacentBtns.push(rightBtn);
+      }
+    }
+
+    if (rowIndex > 0) {
+      const topBtn = startBtn - numberOfColumns;
+      if (!checked.includes(topBtn)) {
+        adjacentBtns.push(topBtn);
+      }
+    }
+
+    if (rowIndex < numberOfRows - 1) {
+      const bottomBtn = startBtn + numberOfColumns;
+      if (!checked.includes(bottomBtn)) {
+        adjacentBtns.push(bottomBtn);
+      }
+    }
+
+    for (const index of adjacentBtns) {
+      const adjacentBtnColor = board[index].style.background;
+      if (currentColor === adjacentBtnColor) {
+        checkAdj(index, checked);
+        board[startBtn].style.background = clickedBtnColor;
+        board[index].style.background = clickedBtnColor;
+      } else {
+        board[startBtn].style.background = clickedBtnColor;
+      }
+    }
+  }
+  const index = Array.from(button.parentNode.children).indexOf(button);
+  checkAdj(0);
+  gameScan();
 }
 
 function gameScan() {
-    function areSameColor(elements) {
-        if (elements.length === 0) {
-            return false;
-        }
-        const strtColor = window.getComputedStyle(board[0]).backgroundColor
-    
-        return elements.every((element) => {
-            const boardColor = window.getComputedStyle(element).backgroundColor
-            return boardColor === strtColor
-        })
+  function areSameColor(elements) {
+    if (elements.length === 0) {
+      return false;
     }
-    const sameColor = areSameColor(boardArray);  
-    if(score.innerText == 25 && sameColor === false) {
-        endGame.style.zIndex = 10
-        endGame.classList.toggle('gameend')
-        message.innerText = `You ran out of moves` 
-    }else if(score.innerText <= 25 && sameColor === true) {
-        endGame.style.zIndex = 10
-        endGame.classList.toggle('gameend')
-        message.innerText = `You won in ${score.innerText} moves`
-    }
+    const strtColor = window.getComputedStyle(board[0]).backgroundColor;
+
+    return elements.every((element) => {
+      const boardColor = window.getComputedStyle(element).backgroundColor;
+      return boardColor === strtColor;
+    });
+  }
+  const sameColor = areSameColor(boardArray);
+  if (score.innerText == 25 && sameColor === false) {
+    endGame.style.zIndex = 10;
+    endGame.classList.toggle("gameend");
+    message.innerText = `You ran out of moves`;
+  } else if (score.innerText <= 25 && sameColor === true) {
+    endGame.style.zIndex = 10;
+    endGame.classList.toggle("gameend");
+    message.innerText = `You won in ${score.innerText} moves`;
+  }
 }
