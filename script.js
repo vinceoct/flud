@@ -8,11 +8,38 @@ const endGame = document.getElementById("endgame")
 const paletteMenu = document.getElementById("palettemenu")
 const background = document.querySelector("html")
 const instructions = document.getElementById("instructions")
-
+let gridSize = 12
 
 
 //New Game Functions
 function newBoard (){
+    const rowClasses = [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8",
+      "r9",
+      "r10",
+      "r11",
+      "r12",
+    ];
+    for (const rowClass of rowClasses) {
+        const row = document.querySelector(`.${rowClass}`)
+    
+    for (let i = 0; i < gridSize; i++) {
+            const button = document.createElement("button");
+            button.className = "boardb";
+            button.addEventListener("click", function() {
+                turn(this)
+            })
+            row.appendChild(button)
+        }
+    }
+
     for (let i = 0; i < board.length; i++) {
         const color = colors[Math.floor(Math.random()*colors.length)]
         board[i].style.background = color 
