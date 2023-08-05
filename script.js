@@ -1,5 +1,5 @@
-let board = document.getElementsByClassName("boardb");
-let boardArray = Array.from(board);
+let boardBtn = document.getElementsByClassName("boardb");
+let boardArray = Array.from(boardBtn);
 const play = document.getElementsByClassName("playb");
 const score = document.getElementById("turnnum");
 let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000"];
@@ -9,23 +9,37 @@ const paletteMenu = document.getElementById("palettemenu");
 const background = document.querySelector("html");
 const instructions = document.getElementById("instructions");
 let gridSize = 12;
+let rowClasses = [
+  "r1",
+  "r2",
+  "r3",
+  "r4",
+  "r5",
+  "r6",
+  "r7",
+  "r8",
+  "r9",
+  "r10",
+  "r11",
+  "r12",
+];
+
+function difficulty() {
+  const boardContainer = document.getElementById("board");
+  for (const newRowClass of ["r13", "r14", "r15", "r16", "r17"]) {
+    const newRow = document.createElement("div");
+    newRow.className = newRowClass;
+    boardContainer.appendChild(newRow);
+    rowClasses.push(newRowClass); 
+  }
+  gridSize = 17
+  newBoard()
+}
+
 
 //New Game Functions
 function newBoard() {
-  const rowClasses = [
-    "r1",
-    "r2",
-    "r3",
-    "r4",
-    "r5",
-    "r6",
-    "r7",
-    "r8",
-    "r9",
-    "r10",
-    "r11",
-    "r12",
-  ];
+
   for (const rowClass of rowClasses) {
     const row = document.querySelector(`.${rowClass}`);
 
@@ -38,18 +52,18 @@ function newBoard() {
       row.appendChild(button);
     }
   }
-  board = document.getElementsByClassName("boardb");
-  boardArray = Array.from(board);
+  boardBtn = document.getElementsByClassName("boardb");
+  boardArray = Array.from(boardBtn);
   resetBoard();
 }
 
-console.log(board);
+console.log(boardBtn);
 console.log(boardArray);
 
 function resetBoard() {
-  for (let i = 0; i < board.length; i++) {
+  for (let i = 0; i < boardBtn.length; i++) {
     const color = colors[Math.floor(Math.random() * colors.length)];
-    board[i].style.background = color;
+    boardBtn[i].style.background = color;
   }
 }
 newBoard();
@@ -120,7 +134,7 @@ function turn(button) {
     const currentColor = board[startBtn].style.background;
     checked.push(startBtn);
 
-    const numberOfRows = Math.sqrt(board.length);
+    const numberOfRows = Math.sqrt(boardBtn.length);
     const numberOfColumns = board[0].parentNode.childElementCount;
 
     const rowIndex = Math.floor(startBtn / numberOfColumns);
@@ -157,13 +171,13 @@ function turn(button) {
     }
 
     for (const index of adjacentBtns) {
-      const adjacentBtnColor = board[index].style.background;
+      const adjacentBtnColor = boardBtn[index].style.background;
       if (currentColor === adjacentBtnColor) {
         checkAdj(index, checked);
-        board[startBtn].style.background = clickedBtnColor;
-        board[index].style.background = clickedBtnColor;
+        boardBtn[startBtn].style.background = clickedBtnColor;
+        boardBtn[index].style.background = clickedBtnColor;
       } else {
-        board[startBtn].style.background = clickedBtnColor;
+        boardBtn[startBtn].style.background = clickedBtnColor;
       }
     }
   }
@@ -186,11 +200,11 @@ function gameScan() {
     });
   }
   const sameColor = areSameColor(boardArray);
-  if (score.innerText == 25 && sameColor === false) {
+  if (score.innerText == 22 && sameColor === false) {
     endGame.style.zIndex = 10;
     endGame.classList.toggle("gameend");
     message.innerText = `You ran out of moves`;
-  } else if (score.innerText <= 25 && sameColor === true) {
+  } else if (score.innerText <= 22 && sameColor === true) {
     endGame.style.zIndex = 10;
     endGame.classList.toggle("gameend");
     message.innerText = `You won in ${score.innerText} moves`;
