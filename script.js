@@ -1,5 +1,5 @@
-const board = document.getElementsByClassName("boardb");
-const boardArray = Array.from(board);
+let board = document.getElementsByClassName("boardb");
+let boardArray = Array.from(board);
 const play = document.getElementsByClassName("playb");
 const score = document.getElementById("turnnum");
 let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000"];
@@ -38,8 +38,13 @@ function newBoard() {
       row.appendChild(button);
     }
   }
+  board = document.getElementsByClassName("boardb");
+  boardArray = Array.from(board);
   resetBoard();
 }
+
+console.log(board);
+console.log(boardArray);
 
 function resetBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -169,10 +174,11 @@ function turn(button) {
 
 function gameScan() {
   function areSameColor(elements) {
+    console.log(elements);
     if (elements.length === 0) {
       return false;
     }
-    const strtColor = window.getComputedStyle(board[0]).backgroundColor;
+    const strtColor = window.getComputedStyle(boardArray[0]).backgroundColor;
 
     return elements.every((element) => {
       const boardColor = window.getComputedStyle(element).backgroundColor;
