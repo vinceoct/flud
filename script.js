@@ -9,7 +9,7 @@ const paletteMenu = document.getElementById("palettemenu");
 const background = document.querySelector("html");
 const instructions = document.getElementById("instructions");
 let gridSize = 12;
-let rowClasses = [
+const originalRowClasses = [
   "r1",
   "r2",
   "r3",
@@ -23,6 +23,7 @@ let rowClasses = [
   "r11",
   "r12",
 ];
+let rowClasses = [...originalRowClasses]
 
 function difficulty() {
   const boardContainer = document.getElementById("board");
