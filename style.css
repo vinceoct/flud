@@ -27,18 +27,18 @@ h1{
     font-size: 60px;
     padding: 0;
 }
-
+/* board sizes 408 */
 #board{
     margin: auto;
-    width: 444px;
-    height: 444px;
+    width: 408px;
+    height: 408px;
     margin-top: 10px;
     box-shadow: 0 0 500px 100px black;
 }
 
 .boardb{
-    width: 26.1px;
-    height: 26.1px;
+    width: 34px;
+    height: 34px;
     border:none;
     margin: 0;
     padding: 0
@@ -53,13 +53,13 @@ h1{
 #menu{
     margin:auto;
     display:flex;
-    width: 444px;
+    width: 408px;
     justify-content: space-between;
     margin-top: -10px;
 }
 
 #play{
-    width: 444px;
+    width: 408px;
     height: 120px;
     margin: auto;
     margin-top: 40px;
@@ -108,8 +108,8 @@ h1{
 }
 #palettes, #messagebox, #howto{
     position: relative;
-    width: 420px;
-    height: 420px;
+    width: 407px;
+    height: 407px;
     background-color: rgba(0,0,0,.85);
     border-radius: 2%;
     display: flex;

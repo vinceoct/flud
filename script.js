@@ -2,6 +2,7 @@ let boardBtn = document.getElementsByClassName("boardb");
 let boardArray = Array.from(boardBtn);
 const play = document.getElementsByClassName("playb");
 const score = document.getElementById("turnnum");
+const scoreLimit = document.getElementById("limit")
 let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000"];
 const message = document.getElementById("message");
 const endGame = document.getElementById("endgame");
@@ -25,7 +26,15 @@ const originalRowClasses = [
 ];
 let rowClasses = [...originalRowClasses]
 
+function changeBoardButtonSize(newHeight, newWidth) {
+  for (let i = 0; i < boardBtn.length; i++) {
+    boardBtn[i].style.height = `${newHeight}px`;
+    boardBtn[i].style.width = `${newWidth}px`;
+  }
+}
+
 function difficulty() {
+  scoreLimit.innerText = '30'
   const boardContainer = document.getElementById("board");
   for (const newRowClass of ["r13", "r14", "r15", "r16", "r17"]) {
     const newRow = document.createElement("div");
@@ -35,6 +44,7 @@ function difficulty() {
   }
   gridSize = 17
   newBoard()
+  changeBoardButtonSize(24, 24);
 }
 
 
@@ -45,6 +55,7 @@ function newBoard() {
     const row = document.querySelector(`.${rowClass}`);
 
     for (let i = 0; i < gridSize; i++) {
+      if (row.childElementCount < gridSize) {
       const button = document.createElement("button");
       button.className = "boardb";
       button.addEventListener("click", function () {
@@ -53,6 +64,7 @@ function newBoard() {
       row.appendChild(button);
     }
   }
+}
   boardBtn = document.getElementsByClassName("boardb");
   boardArray = Array.from(boardBtn);
   resetBoard();
@@ -132,11 +144,11 @@ function turn(button) {
     .getPropertyValue("background-color");
 
   function checkAdj(startBtn, checked = []) {
-    const currentColor = board[startBtn].style.background;
+    const currentColor = boardBtn[startBtn].style.background;
     checked.push(startBtn);
 
     const numberOfRows = Math.sqrt(boardBtn.length);
-    const numberOfColumns = board[0].parentNode.childElementCount;
+    const numberOfColumns = boardBtn[0].parentNode.childElementCount;
 
     const rowIndex = Math.floor(startBtn / numberOfColumns);
     const columnIndex = startBtn % numberOfColumns;
@@ -201,11 +213,11 @@ function gameScan() {
     });
   }
   const sameColor = areSameColor(boardArray);
-  if (score.innerText == 22 && sameColor === false) {
+  if (score.innerText == scoreLimit.innerText && sameColor === false) {
     endGame.style.zIndex = 10;
     endGame.classList.toggle("gameend");
     message.innerText = `You ran out of moves`;
-  } else if (score.innerText <= 22 && sameColor === true) {
+  } else if (score.innerText <= scoreLimit.innerText && sameColor === true) {
     endGame.style.zIndex = 10;
     endGame.classList.toggle("gameend");
     message.innerText = `You won in ${score.innerText} moves`;
