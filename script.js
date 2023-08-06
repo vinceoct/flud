@@ -2,7 +2,7 @@ let boardBtn = document.getElementsByClassName("boardb");
 let boardArray = Array.from(boardBtn);
 const play = document.getElementsByClassName("playb");
 const score = document.getElementById("turnnum");
-const scoreLimit = document.getElementById("limit")
+const scoreLimit = document.getElementById("limit");
 let colors = ["#ff0000", "#0000ff", "#ffff00", "#FFA500", "#800080", "#008000"];
 const message = document.getElementById("message");
 const endGame = document.getElementById("endgame");
@@ -24,7 +24,7 @@ const originalRowClasses = [
   "r11",
   "r12",
 ];
-let rowClasses = [...originalRowClasses]
+let rowClasses = [...originalRowClasses];
 
 function changeBoardButtonSize(newHeight, newWidth) {
   for (let i = 0; i < boardBtn.length; i++) {
@@ -33,38 +33,97 @@ function changeBoardButtonSize(newHeight, newWidth) {
   }
 }
 
-function difficulty() {
-  scoreLimit.innerText = '30'
+
+function removeRows() {
   const boardContainer = document.getElementById("board");
+  for (const rowClass of ["r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22"]) {
+    const rowToRemove = document.querySelector(`.${rowClass}`);
+    if (rowToRemove) {
+      boardContainer.removeChild(rowToRemove);
+    }
+  }
+}
+
+function small() {
+  removeRows()
+  scoreLimit.innerText = "22";
+  gridSize = 12
+  newBoard()
+  changeBoardButtonSize(34, 34)
+}
+function medium() {
+  removeRows()
+  scoreLimit.innerText = "30";
+  const boardContainer = document.getElementById("board");
+  if (rowClasses.length > 12) {
+    rowClasses.splice(12, 10);
+    console.log(rowClasses.length);
+  }
   for (const newRowClass of ["r13", "r14", "r15", "r16", "r17"]) {
     const newRow = document.createElement("div");
     newRow.className = newRowClass;
     boardContainer.appendChild(newRow);
-    rowClasses.push(newRowClass); 
+    rowClasses.push(newRowClass);
+    console.log(rowClasses.length);
   }
-  gridSize = 17
-  newBoard()
+  
+  gridSize = 17;
+  console.log(rowClasses);
+  newBoard();
   changeBoardButtonSize(24, 24);
 }
 
+function large() {
+  scoreLimit.innerText = "36";
+  const boardContainer = document.getElementById("board");
+  if (rowClasses.length === 17) {
+    for (const newRowClass of ["r18", "r19", "r20", "r21", "r22"]) {
+      const newRow = document.createElement("div");
+      newRow.className = newRowClass;
+      boardContainer.appendChild(newRow);
+      rowClasses.push(newRowClass);
+    }
+  } else if (rowClasses.length < 17) {
+    for (const newRowClass of [
+      "r13",
+      "r14",
+      "r15",
+      "r16",
+      "r17",
+      "r18",
+      "r19",
+      "r20",
+      "r21",
+      "r22",
+    ]) {
+      const newRow = document.createElement("div");
+      newRow.className = newRowClass;
+      boardContainer.appendChild(newRow);
+      rowClasses.push(newRowClass);
+    }
+  }
+  console.log(rowClasses);
+  gridSize = 22;
+  newBoard();
+  changeBoardButtonSize(18.54, 18.54);
+}
 
 //New Game Functions
 function newBoard() {
-
   for (const rowClass of rowClasses) {
     const row = document.querySelector(`.${rowClass}`);
 
     for (let i = 0; i < gridSize; i++) {
       if (row.childElementCount < gridSize) {
-      const button = document.createElement("button");
-      button.className = "boardb";
-      button.addEventListener("click", function () {
-        turn(this);
-      });
-      row.appendChild(button);
+        const button = document.createElement("button");
+        button.className = "boardb";
+        button.addEventListener("click", function () {
+          turn(this);
+        });
+        row.appendChild(button);
+      }
     }
   }
-}
   boardBtn = document.getElementsByClassName("boardb");
   boardArray = Array.from(boardBtn);
   resetBoard();
