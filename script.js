@@ -44,14 +44,28 @@ function removeRows() {
   }
 }
 
+function removeButtons() {
+  boardArray.forEach((button) => {
+    button.remove();
+  });
+}
+
+
 function small() {
   removeRows()
+  removeButtons();
+
   scoreLimit.innerText = "22";
-  gridSize = 12
+    if (rowClasses.length > 12) {
+      rowClasses.splice(12, 10);
+      console.log(rowClasses.length);
+    }
+  gridSize = 12;
   newBoard()
   changeBoardButtonSize(34, 34)
 }
 function medium() {
+  removeButtons();
   removeRows()
   scoreLimit.innerText = "30";
   const boardContainer = document.getElementById("board");
@@ -68,7 +82,6 @@ function medium() {
   }
   
   gridSize = 17;
-  console.log(rowClasses);
   newBoard();
   changeBoardButtonSize(24, 24);
 }
