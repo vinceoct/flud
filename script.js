@@ -62,27 +62,27 @@ function small() {
     }
   gridSize = 12;
   newBoard()
+  reset()
   changeBoardButtonSize(34, 34)
 }
 function medium() {
-  removeButtons();
   removeRows()
+  removeButtons()
   scoreLimit.innerText = "30";
   const boardContainer = document.getElementById("board");
   if (rowClasses.length > 12) {
     rowClasses.splice(12, 10);
-    console.log(rowClasses.length);
   }
   for (const newRowClass of ["r13", "r14", "r15", "r16", "r17"]) {
     const newRow = document.createElement("div");
     newRow.className = newRowClass;
     boardContainer.appendChild(newRow);
     rowClasses.push(newRowClass);
-    console.log(rowClasses.length);
   }
   
   gridSize = 17;
   newBoard();
+  reset()
   changeBoardButtonSize(24, 24);
 }
 
@@ -118,10 +118,10 @@ function large() {
   console.log(rowClasses);
   gridSize = 22;
   newBoard();
+  reset()
   changeBoardButtonSize(18.54, 18.54);
 }
 
-//New Game Functions
 function newBoard() {
   for (const rowClass of rowClasses) {
     const row = document.querySelector(`.${rowClass}`);
@@ -158,7 +158,6 @@ function reset() {
   score.innerText = "0";
 }
 
-//Button Functions
 function playAgain(button) {
   reset();
   endGame.style.zIndex = -1;
@@ -208,7 +207,6 @@ function colorChange(button) {
   }
 }
 
-//Game Logic Function
 function turn(button) {
   score.innerText++;
   const clickedBtnColor = window

@@ -10,6 +10,7 @@
 </head>
 <body scroll="no">
     <button id="openHT" onclick="howTo()">?</button>
+<div class='game'>
     <h1>flŭd</h1>    
     <div id="menu">
         <button id="reset" onclick="reset()"></button>
@@ -31,7 +32,6 @@
         <div class="r11"></div>
         <div class="r12"></div>
     </div>  
-    
     <div id="play">
         <button class ="playb" id="c1" onclick="turn(this)"></button>
         <button class ="playb" id="c2" onclick="turn(this)"></button>
@@ -40,9 +40,12 @@
         <button class ="playb" id="c5" onclick="turn(this)"></button>
         <button class ="playb" id="c6" onclick="turn(this)"></button>
     </div>
-    <button onclick="small(this)">small</button>
-    <button onclick="medium(this)">medium</button>
-    <button onclick="large(this)">large</button>
+    <div class='diffbtns'>
+        <button class='difficulty' onclick="small(this)">small</button>
+        <button class='difficulty' onclick="medium(this)">medium</button>
+        <button class='difficulty' onclick="large(this)">large</button>
+    </div>
+</div>
    <div id="endgame">
         <div id="messagebox">
             <h2 id="message"></h2>
@@ -104,5 +107,6 @@
             <button id="close2" onclick="howTo()">close</button>
         </div>
     </div>
+
 </body>
 </html>

@@ -27,6 +27,13 @@ h1{
     font-size: 60px;
     padding: 0;
 }
+
+.game{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 /* board sizes 408 */
 #board{
     margin: auto;
@@ -53,14 +60,22 @@ h1{
 #menu{
     margin:auto;
     display:flex;
+    flex-direction: row;
     width: 408px;
     justify-content: space-between;
     margin-top: -10px;
+    align-items: center;
+    z-index: 1;
 }
 
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #play{
     width: 408px;
-    height: 120px;
+    height: 50px;
     margin: auto;
     margin-top: 40px;
     border: none;
@@ -73,6 +88,7 @@ h1{
     width: 50px;
     height: 50px;
     border: none;
+    margin-bottom: 0;
 }
 
 #c1{
@@ -227,9 +243,7 @@ animation: instO .5s ease 0s 1 normal forwards;
 #reset:hover, #colors:hover{
     filter: drop-shadow(1px 1px 4px aliceblue);
 }
-#score{
-    margin-top: -8px;
-}
+
 
 #c1, #c2, #c3, #c4, #c5, #c6{
     transition-duration: 0.4s;
@@ -278,6 +292,18 @@ animation: instO .5s ease 0s 1 normal forwards;
     box-shadow: 0 0 250px 50px black;
 }
 
+.diffbtns{
+    width: 400px;
+    height: 25px;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+}
+
+.diffculty{
+    width: 50px !important;
+    background: none;
+}
 @media only screen and (max-width: 768px) {
     html { 
         background: black url(./images/defBG.png);
